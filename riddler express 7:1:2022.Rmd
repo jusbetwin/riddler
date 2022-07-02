@@ -1,0 +1,35 @@
+---
+title: "Riddler Express July 1st 2022"
+output: html_document
+date: '2022-07-02'
+---
+
+It's the morning of Jan. 1, 2023, and you have a task you want to complete before the
+end of the year, on Dec. 31. The task is easily divisible into portions, so you always
+know exactly what fraction of the task is left.
+
+Your initial plan is to do exactly 1/365 of the task every day. But then you think to
+yourself, "If I do 2/365 today, I can do a little less every day from now on." And so, on
+Jan. 1, you would complete 2/365 of the task. On Jan. 2, 363/365 of the task remains
+with 364 days left to complete it, so you would do another 2/364 × 363/365 of the
+task.
+
+If you continue in this fashion every day, dividing the remaining work by the
+remaining number of days in the year and doing twice that amount, when would you
+finish?
+
+```{r setup, include=FALSE}
+
+days_left = 365
+work_left = 1.00
+
+while (work_left > 0) {
+  
+  work_left = 2 / days_left * work_left
+  days_left = days_left - 1
+  
+}
+
+print(365 - days_left)
+```
+
